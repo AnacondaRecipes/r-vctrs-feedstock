@@ -34,13 +34,13 @@ requirements:
     - r-glue                       # [build_platform != target_platform]
     - r-rlang >=1.0.2              # [build_platform != target_platform]
   host:
-    - r-base
+    - r-base {{ r_version }} 
     - r-cli >=3.4.0
     - r-glue
     - r-rlang >=1.0.6
     - r-lifecycle >=1.0.3
   run:
-    - r-base
+    - r-base {{ r_version }} 
     - {{ native }}gcc-libs         # [win]
     - r-cli >=3.4.0
     - r-glue
