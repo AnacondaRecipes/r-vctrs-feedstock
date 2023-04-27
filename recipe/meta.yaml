@@ -63,7 +63,7 @@ about:
 
 extra:
   recipe-maintainers:
-    - conda-forge/r
+    - ianaobi
     - philip-khor
 
 # Package: vctrs
