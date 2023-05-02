@@ -1,4 +1,4 @@
-{% set version = '0.2.1' %}
+{% set version = "0.6.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/vctrs_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/vctrs/vctrs_{{ version }}.tar.gz
-  sha256: e04f0b16c265fd0af8660b8768c8f53fded638a61c624a642d7a6cb8b7939c66
+  sha256: feecabe11f6c55e04377d36fa59842187f0a6fe52aaf867c08289a948781ee84
 
 build:
   merge_build_host: True  # [win]
@@ -36,22 +36,18 @@ requirements:
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
   host:
-    - r-base {{ r_version }}
-    - r-backports
-    - r-digest
-    - r-ellipsis >=0.2.0
+    - r-base {{ r_version }} 
+    - r-cli >=3.4.0
     - r-glue
-    - r-rlang >=0.4.0
-    - r-zeallot
+    - r-rlang >=1.0.6
+    - r-lifecycle >=1.0.3
   run:
-    - r-base {{ r_version }}
-    - {{native}}gcc-libs         # [win]
-    - r-backports
-    - r-digest
-    - r-ellipsis >=0.2.0
+    - r-base {{ r_version }} 
+    - {{ native }}gcc-libs         # [win]
+    - r-cli >=3.4.0
     - r-glue
-    - r-rlang >=0.4.0
-    - r-zeallot
+    - r-rlang >=1.0.6
+    - r-lifecycle >=1.0.3
 
 test:
   commands:
@@ -72,9 +68,9 @@ extra:
     comment: "Built for customer as a dependency to r-tidygraph"
     recipe_maintainers:
       - bkreider
+      - ianaobi
 
   recipe-maintainers:
-    - conda-forge/r
     - philip-khor
 
 # Package: vctrs
